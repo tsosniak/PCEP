@@ -1,0 +1,100 @@
+1. How does a computer program work?
+Computers can execute only extremely simple operations
+
+
+2. Natural languages vs. programming languages
+Machine language: A complete set of known commands is called an instruction list, sometimes abbreviated to IL.
+Different types of computers may vary depending on the size of their ILs, and the instructions could be completely different in different models.
+
+
+3. What makes a language?
+A. an alphabet: a set of symbols used to build words of a certain language
+B. a lexis: (aka a dictionary) a set of words the language offers its users
+C. a syntax: a set of rules (formal or informal, written or felt intuitively) used to determine if a certain string of words forms a valid sentence (e.g., "I am a python" is a syntactically correct phrase, while "I a python am" isn't)
+D. semantics: a set of rules determining if a certain phrase makes sense (e.g., "I ate a doughnut" makes sense, but "A doughnut ate me" doesn't)
+
+The IL is, in fact, the alphabet of a machine language. This is the simplest and most primary set of symbols we can use to give commands to a computer.
+We all (both computers and humans) need something else, a common language for computers and humans, or a bridge between the two different worlds.
+We need a language in which humans can write their programs and a language that computers may use to execute the programs, one that is far more complex than machine language and yet far simpler than natural language.
+Such languages are often called high-level programming languages.
+A program written in a high-level programming language is called a source code (in contrast to the machine code executed by computers). Similarly, the file containing the source code is called the source file.
+
+
+4. Compilation vs. interpretation
+Computer programming is the act of composing the selected programming language's elements in the order that will cause the desired effect.
+such a composition has to be correct in many senses:
+alphabetically - a program needs to be written in a recognizable script, such as Roman, Cyrillic, etc.
+lexically - each programming language has its dictionary and you need to master it
+syntactically - each language has its rules and they must be obeyed;
+semantically - the program has to make sense.
+
+There are two different ways of transforming a program from a high-level programming language into machine language:
+
+COMPILATION - the source program is translated once (however, this act must be repeated each time you modify the source code) by getting a file (e.g., an .exe file if the code is intended to be run under MS Windows) containing the machine code; now you can distribute the file worldwide; the program that performs this translation is called a compiler or translator;
+
+INTERPRETATION - you (or any user of the code) can translate the source program each time it has to be run; the program performing this kind of transformation is called an interpreter, as it interprets the code every time it is intended to be executed; it also means that you cannot just distribute the source code as-is, because the end-user also needs the interpreter to execute it.
+
+5. What does the interpreter actually do?
+The source code (your program) is usually placed in text files -pure text, without any decorations like different fonts, colors
+The interpreter reads the source code in a way that is common in Western culture: from top to bottom and from left to right.
+-the interpreter checks if all subsequent lines are correct (using the four aspects covered earlier).
+-if the compiler finds an error, it finishes its work immediately. The only result in this case is an error message.
+-If the line looks good, the interpreter tries to execute it - 'read-check-execute'
+-It is also possible that a significant part of the code may be executed successfully before the interpreter finds an error. This is normal behavior in this execution model.
+
+
+6. Compilation vs. interpretation - advantages and disadvantages
+Python is an interpreted language - you'll need the Python interpreter. You won't be able to run your code without it.
+Due to historical reasons, languages designed to be utilized in the interpretation manner are often called scripting languages, while the source programs encoded using them are called scripts.
+
+COMPILATION (+)
+the execution of the translated code is usually faster;
+only the user has to have the compiler - the end-user may use the code without it;
+the translated code is stored using machine language - as it is very hard to understand it, your own inventions and programming tricks are likely to remain your secret.
+
+COMPILATION (-)
+the compilation itself may be a very time-consuming process - you may not be able to run your code immediately after any amendment;
+you have to have as many compilers as hardware platforms you want your code to be run on.
+
+INTERPRETATION (+)
+you can run the code as soon as you complete it - there are no additional phases of translation;
+the code is stored using programming language, not the machine one - this means that it can be run on computers using different machine languages; you don't compile your code separately for each different architecture.
+
+INTERPRETATION (-)
+don't expect that interpretation will ramp your code to high speed - your code will share the computer's power with the interpreter, so it can't be really fast;
+both you and the end user have to have the interpreter to run your code.
+
+
+7. What is Python?
+Python is a widely-used, interpreted, object-oriented, and high-level programming language with dynamic semantics, used for general-purpose programming.
+all the newer versions of Python 3 are backwards compatible with the previous versions of Python 3
+
+Guido van Rossum used the "C" programming language to implement the very first version of his language and this decision is still in force.
+All Pythons coming from the PSF are written in the "C" language
+This is why the PSF (Python Software Foundation) implementation is often referred to as CPython
+
+Cython - Python translated into C - for speed matters.
+Jython - "J" is for "Java". Imagine a Python written in Java instead of C. This is useful, for example, if you develop large and complex systems written entirely in Java and want to add some Python flexibility to them
+Jython can communicate with existing Java infrastructure more effectively - Note: the current Jython implementation follows Python 2 standards.
+PyPy - The source code of PyPy is not run in the interpretation manner, but is instead translated into the C programming language and then executed separately.
+PyPy is rather a tool for people developing Python than for the rest of the users.
+
+Why not Python?
+low-level programming (sometimes called "close to metal" programming): if you want to implement an extremely effective driver or graphical engine, you wouldn't use Python;
+applications for mobile devices: although this territory is still waiting to be conquered by Python, it will most likely happen someday.
+
+8. Starting your work with Python
+IDLE is an acronym: Integrated Development and Learning Environment.
+The first step is to create a new source file and fill it with code. Click File in the IDLE’s menu and choose New file.
+This is the editor window. Its only purpose is to be a workplace in which your source code is treated.
+IDLE is able to save your code and retrieve it when you need it again.
+
+
+
+
+
+
+
+
+
+
