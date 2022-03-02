@@ -303,3 +303,331 @@ will be used to illustrate the meaning of bitwise operators in Python. Analyze t
 
 https://edube.org/learn/programming-essentials-in-python-part-1-v1-1/lists-collections-of-data-2
 
+8. Scalars - variables that are able to store exactly one given value at a time
+Lists - multi-value variables: []
+The elements inside a list may have different types
+always numbered starting from zero
+list is a collection of elements, but each element is a scalar.
+
+9. Indexing lists
+The value inside the brackets which selects one element of the list is called an index, while the operation of selecting an element from the list is known as indexing.
+numbers = [10, 5, 7, 2, 1]
+numbers[0] = 111
+
+Note: all the indices used so far are literals. Their values are fixed at runtime, but any expression can be the index, too. This opens up lots of possibilities.
+print(numbers)
+ [10, 5, 7, 2, 1]
+
+10. The len() function
+len(numbers)
+
+11. Removing elements from a list
+del numbers[1]
+You can't access an element which doesn't exist
+
+12. Negative indices are legal
+numbers[-1]
+
+13. Functions vs. methods
+A method is a specific kind of function - it behaves like a function and looks like a function, but differs in the way in which it acts, and in its invocation style.
+A function doesn't belong to any data - it gets data, it may create new data and it (generally) produces a result.
+A method does all these things, but is also able to change the state of a selected entity.
+A method is owned by the data it works for, while a function is owned by the whole code.
+
+The method will behave like a function, but can do something more - it can change the internal state of the data from which it has been invoked.
+
+14. Adding elements to a list: append() and insert()
+append() - at the end of the list which owns the method. The list's length then increases by one.
+list.append(value)
+
+The insert() method is a bit smarter - it can add a new element at any place in the list, not only at the end.
+list.insert(location, value)
+
+15. Swap element of list
+my_list = [10, 1, 8, 3, 5]
+length = len(my_list)
+
+for i in range(length // 2):
+    my_list[i], my_list[length - i - 1] = my_list[length - i - 1], my_list[i]
+
+
+16. Key takeaways
+
+1. The list is a type of data in Python used to store multiple objects. It is an ordered and mutable collection of comma-separated items between square brackets, e.g.:
+
+my_list = [1, None, True, "I am a string", 256, 0]
+
+
+
+2. Lists can be indexed and updated, e.g.:
+
+my_list = [1, None, True, 'I am a string', 256, 0]
+print(my_list[3])  # outputs: I am a string
+print(my_list[-1])  # outputs: 0
+
+my_list[1] = '?'
+print(my_list)  # outputs: [1, '?', True, 'I am a string', 256, 0]
+
+my_list.insert(0, "first")
+my_list.append("last")
+print(my_list)  # outputs: ['first', 1, '?', True, 'I am a string', 256, 0, 'last']
+
+
+3. Lists can be nested, e.g.:
+
+my_list = [1, 'a', ["list", 64, [0, 1], False]]
+
+
+You will learn more about nesting in module 3.1.7 - for the time being, we just want you to be aware that something like this is possible, too.
+
+4. List elements and lists can be deleted, e.g.:
+
+my_list = [1, 2, 3, 4]
+del my_list[2]
+print(my_list)  # outputs: [1, 2, 4]
+
+del my_list  # deletes the whole list
+
+
+Again, you will learn more about this in module 3.1.6 - don't worry. For the time being just try to experiment with the above code and check how changing it affects the output.
+
+5. Lists can be iterated through using the for loop, e.g.:
+
+my_list = ["white", "purple", "blue", "yellow", "green"]
+
+for color in my_list:
+    print(color)
+
+
+6. The len() function may be used to check the list's length, e.g.:
+
+my_list = ["white", "purple", "blue", "yellow", "green"]
+print(len(my_list))  # outputs 5
+
+del my_list[2]
+print(len(my_list))  # outputs 4
+
+
+7. A typical function invocation looks as follows: result = function(arg), while a typical method invocation looks like this:result = data.method(arg).
+
+
+17. The bubble sort
+the following approach: we'll take the first and the second elements and compare them; if we determine that they're in the wrong order (i.e., the first is greater than the second), we'll swap them round; if their order is valid, we'll do nothing
+
+8
+10
+6
+2
+4
+
+8
+6
+10
+2
+4
+
+.....
+
+As you can see, the essence of this algorithm is simple: we compare the adjacent elements, and by swapping some of them, we achieve our goal.
+my_list = [8, 10, 6, 2, 4]  # list to sort
+swapped = True  # It's a little fake, we need it to enter the while loop.
+
+while swapped:
+    swapped = False  # no swaps so far
+    for i in range(len(my_list) - 1):
+        if my_list[i] > my_list[i + 1]:
+            swapped = True  # a swap occurred!
+            my_list[i], my_list[i + 1] = my_list[i + 1], my_list[i]
+
+print(my_list)
+
+
+my_list = [8, 10, 6, 2, 4]
+my_list.sort()
+print(my_list)
+
+
+18. Key takeaways
+
+1. You can use the sort() method to sort elements of a list, e.g.:
+
+lst = [5, 3, 1, 2, 4]
+print(lst)
+
+lst.sort()
+print(lst)  # outputs: [1, 2, 3, 4, 5]
+
+
+2. There is also a list method called reverse(), which you can use to reverse the list, e.g.:
+
+lst = [5, 3, 1, 2, 4]
+print(lst)
+
+lst.reverse()
+print(lst)  # outputs: [4, 2, 1, 3, 5]
+
+
+19. Powerful slices
+A slice is an element of Python syntax that allows you to make a brand new copy of a list, or parts of a list.
+A slice of this form makes a new (target) list, taking elements from the source list - the elements of the indices from start to end - 1.
+If the start specifies an element lying further than the one described by the end (from the list's beginning point of view), the slice will be empty:
+
+my_list = [10, 8, 6, 4, 2]
+new_list = my_list[-1:1]
+print(new_list)
+
+The snippet's output is:
+[]
+
+As we've said before, omitting both start and end makes a copy of the whole list:
+
+my_list = [10, 8, 6, 4, 2]
+new_list = my_list[:]
+print(new_list)
+
+Deleting all the elements at once is possible too:
+
+my_list = [10, 8, 6, 4, 2]
+del my_list[:]
+print(my_list)
+
+20. The in and not in operators
+elem in my_list
+elem not in my_list
+
+
+21. Key takeaways
+
+1. If you have a list l1, then the following assignment: l2 = l1 does not make a copy of the l1 list, but makes the variables l1 and l2 point to one and the same list in memory. For example:
+
+vehicles_one = ['car', 'bicycle', 'motor']
+print(vehicles_one) # outputs: ['car', 'bicycle', 'motor']
+
+vehicles_two = vehicles_one
+del vehicles_one[0] # deletes 'car'
+print(vehicles_two) # outputs: ['bicycle', 'motor']
+
+
+2. If you want to copy a list or part of the list, you can do it by performing slicing:
+
+colors = ['red', 'green', 'orange']
+
+copy_whole_colors = colors[:]  # copy the entire list
+copy_part_colors = colors[0:2]  # copy part of the list
+
+
+3. You can use negative indices to perform slices, too. For example:
+
+sample_list = ["A", "B", "C", "D", "E"]
+new_list = sample_list[2:-1]
+print(new_list)  # outputs: ['C', 'D']
+
+
+4. The start and end parameters are optional when performing a slice: list[start:end], e.g.:
+
+my_list = [1, 2, 3, 4, 5]
+slice_one = my_list[2: ]
+slice_two = my_list[ :2]
+slice_three = my_list[-2: ]
+
+print(slice_one)  # outputs: [3, 4, 5]
+print(slice_two)  # outputs: [1, 2]
+print(slice_three)  # outputs: [4, 5]
+
+
+5. You can delete slices using the del instruction:
+
+my_list = [1, 2, 3, 4, 5]
+del my_list[0:2]
+print(my_list)  # outputs: [3, 4, 5]
+
+del my_list[:]
+print(my_list)  # deletes the list content, outputs: []
+
+
+6. You can test if some items exist in a list or not using the keywords in and not in, e.g.:
+
+my_list = ["A", "B", 1, 2]
+
+print("A" in my_list)  # outputs: True
+print("C" not in my_list)  # outputs: True
+print(2 not in my_list)  # outputs: False
+
+
+22. List comprehension
+The same effect may be achieved by means of a list comprehension, the special syntax used by Python in order to fill massive lists.
+A list comprehension is actually a list, but created on-the-fly during program execution, and is not described statically.
+squares = [x ** 2 for x in range(10)]
+
+Key takeaways
+
+1. List comprehension allows you to create new lists from existing ones in a concise and elegant way. The syntax of a list comprehension looks as follows:
+
+[expression for element in list if conditional]
+
+
+which is actually an equivalent of the following code:
+
+for element in list:
+    if conditional:
+        expression
+
+
+Here's an example of a list comprehension - the code creates a five-element list filled with with the first five natural numbers raised to the power of 3:
+
+cubed = [num ** 3 for num in range(5)]
+print(cubed)  # outputs: [0, 1, 8, 27, 64]
+
+
+2. You can use nested lists in Python to create matrices (i.e., two-dimensional lists). For example:
+
+Table - a two-dimensional array
+
+# A four-column/four-row table - a two dimensional array (4x4)
+
+table = [[":(", ":)", ":(", ":)"],
+         [":)", ":(", ":)", ":)"],
+         [":(", ":)", ":)", ":("],
+         [":)", ":)", ":)", ":("]]
+
+print(table)
+print(table[0][0])  # outputs: ':('
+print(table[0][3])  # outputs: ':)'
+
+
+
+
+3. You can nest as many lists in lists as you want, and therefore create n-dimensional lists, e.g., three-, four- or even sixty-four-dimensional arrays. For example:
+
+Cube - a three-dimensional array
+
+# Cube - a three-dimensional array (3x3x3)
+
+cube = [[[':(', 'x', 'x'],
+         [':)', 'x', 'x'],
+         [':(', 'x', 'x']],
+
+        [[':)', 'x', 'x'],
+         [':(', 'x', 'x'],
+         [':)', 'x', 'x']],
+
+        [[':(', 'x', 'x'],
+         [':)', 'x', 'x'],
+         [':)', 'x', 'x']]]
+
+print(cube)
+print(cube[0][0][0])  # outputs: ':('
+print(cube[2][2][0])  # outputs: ':)'
+
+https://edube.org/learn/programming-essentials-in-python-part-1-v1-1/module-completion-23
+
+
+
+
+
+
+
+
+
+
+
