@@ -388,6 +388,85 @@ print(factorial(4)) # 4 * 3 * 2 * 1 = 24
 
 https://edube.org/learn/programming-essentials-in-python-part-1-v1-1/tuples-and-dictionaries-14
 
+16. Sequence types and mutability
+A sequence type is a type of data in Python which is able to store more than one value (or less than one, as a sequence may be empty), and these values can be sequentially (hence the name) browsed, element by element.
+
+mutability - is a property of any of Python's data that describes its readiness to be freely changed during program execution. There are two kinds of Python data: mutable and immutable.
+Mutable data can be freely updated at any time
+Immutable data cannot be modified in this way.
+
+ A tuple is an immutable sequence type
+tuple_1 = (1, 2, 4, 8)
+tuple_2 = 1., .5, .25, .125
+
+each tuple element may be of a different type
+
+empty_tuple = () --> empty tuple
+one-element tuple
+one_element_tuple_1 = (1, )
+one_element_tuple_2 = 1.,
+
+If you want to get the elements of a tuple in order to read them over, you can use the same conventions to which you're accustomed while using lists.
+
+don't try to modify a tuple's contents! - will cause a runtime error:
+like: AttributeError: 'tuple' object has no attribute 'append'
+    my_tuple.append(10000)
+    del my_tuple[0]
+    my_tuple[1] = -10
+
+One of the most useful tuple properties is their ability to appear on the left side of the assignment operator
+like swapping: t1, t2, t3 = t2, t3, t1
+
+ tuple's elements can be variables
+
+
+17. What is a dictionary?
+The dictionary is another Python data structure. It's not a sequence type (but can be easily adapted to sequence processing) and it is mutable.
+This means that a dictionary is a set of key-value pairs.
+
+each key must be unique - it's not possible to have more than one key of the same value;
+a key may be any immutable type of object: it can be a number (integer or float), or even a string, but not a list;
+a dictionary is not a list - a list contains a set of numbered values, while a dictionary holds pairs of values;
+the len() function works for dictionaries, too - it returns the numbers of key-value elements in the dictionary;
+a dictionary is a one-way tool - if you have an English-French dictionary, you can look for French equivalents of English terms, but not vice versa.
+
+The list of pairs is surrounded by curly braces, while the pairs themselves are separated by commas, and the keys and values by colons.
+dictionary = {"cat": "chat", "dog": "chien", "horse": "cheval"}
+phone_numbers = {'boss': 5551234567, 'Suzy': 22657854310}
+empty_dictionary = {}
+
+the dictionary as a whole can be printed with a single print() invocation.
+
+!!! (*) In Python 3.6x dictionaries have become ordered collections by default. !!!
+
+keys are case-sensitive: 'Suzy' is something different from 'suzy'.
+
+you mustn't use a non-existent key.
+The in operator, together with its companion, not in, can salvage this situation.
+
+When you write a big or lengthy expression, it may be a good idea to keep it vertically aligned. T
+# Example 1:
+dictionary = {
+              "cat": "chat",
+              "dog": "chien",
+              "horse": "cheval"
+              }
+
+Such ways of formatting code are called hanging indents.
+
+https://edube.org/learn/programming-essentials-in-python-part-1-v1-1/tuples-and-dictionaries-methods-4
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
